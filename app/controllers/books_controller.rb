@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def new
@@ -23,6 +24,12 @@ class BooksController < ApplicationController
       flash[:errors] = book.errors
       redirect_to books_path()
     end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy()
+    redirect_to books_path()
   end
 
   private

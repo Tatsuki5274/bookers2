@@ -9,5 +9,7 @@
         <td>introduction</td>
         <td><%= user.introduction %></td>
     </tr>
-    <%= link_to "編集", edit_user_path(user.id) %>
+    <% if user.id == current_user.id then %>
+        <%= link_to "編集", edit_user_path(user.id) %>
+    <% end %>
 </table>

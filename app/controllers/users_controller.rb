@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
   before_action :authenticate_user!
 
+  def is_matching_login_user
+    if params[:id].to_i() != current_user.id
+        redirect_to root_path()
+    end
+  end
 
   def index
     @users = User.all()

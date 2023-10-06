@@ -12,6 +12,15 @@
 
   <body>
     <header>
+      <% if flash[:errors] %>
+        <%= flash[:errors].count %>件のエラーが発生しました
+        <ul>
+          <% flash[:errors].each do |key, value| %>
+            <li><%= value[0] %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
       <% if user_signed_in? %>
         <li>
           <%= link_to "Home", user_path(current_user.id) %>

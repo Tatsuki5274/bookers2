@@ -1,4 +1,12 @@
 <h1>users/show.html.erb</h1>
-<%= render "profile", user: @user %>
-<%= render "books/new_book" %>
-<%= render "books/list", books: @books %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <%= render "profile", user: @user %>
+            <%= render "books/new_book" %>
+        </div>
+        <div class="col-md-8 offset-md-1">
+            <%= render "books/list", books: @books %>
+        </div>
+    </div>
+</div>

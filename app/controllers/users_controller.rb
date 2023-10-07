@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :is_matching_login_user, only: [:edit, :update]
   before_action :authenticate_user!
+  before_action :is_matching_login_user, only: [:edit, :update]
 
   def is_matching_login_user
     if params[:id].to_i() != current_user.id
-        redirect_to root_path()
+        redirect_to user_path(current_user.id)
     end
   end
 
